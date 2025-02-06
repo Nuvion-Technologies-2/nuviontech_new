@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NUVION TECHNOLOGIES</title>
+    <link rel="stylesheet" href="contact.css">
+    <link rel="shortcut icon" type="image/x-icon" href="static/favicon.ico" />
+    <script>
+      document.addEventListener('keydown', function(event) {
+          if ((event.ctrlKey && event.shiftKey && event.keyCode === 73) || (event.ctrlKey && event.shiftKey && event.keyCode === 67) ||
+              (event.ctrlKey && event.KeyCode === 85) || (event.keyCode === 123)) {
+              event.preventDefault(); // Prevent the default behavior
+          }
+          if (event.ctrlKey && event.keyCode === 85) {
+              event.preventDefault(); // Prevent the default behavior
+          }
+      });
+  
+      // Prevent right-click context menu
+      window.addEventListener('contextmenu', function(event) {
+          event.preventDefault();
+      });
+     </script>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="/img/NUVION.png" alt="">
+        </div>
+        <div class="nav-links">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="#about" >About</a></li>
+                <li><a href="#team">Team</a></li>
+            </ul>
+    </nav>
+
+
+
+
+
+    <div class="container">
+        <h1>Contact or Work with us Drop your ideas below..</h1>
+        <form method="post" action="{% url 'work_with_us' %}">
+            {% csrf_token %}
+            <input type="text" name="name" required placeholder="Name">
+            <input type="text" name="mobile" required placeholder="Mobile">
+            <input type="email" name="email" required placeholder="Email">
+            <input type="text" name="company" placeholder="Company">
+            <input type="text" name="field_of_work" placeholder="Field of Work">
+            <textarea name="desc" rows="4" placeholder="Description"></textarea>
+
+            <!-- Use checkbox-label class for inline checkboxes -->
+            <div class="checkboxs">
+            <label class="checkbox-label" for="webapp">Web Application</label>
+            <input type="checkbox" name="webapp">
+            <label class="checkbox-label" for="app">Mobile App</label>
+            <input type="checkbox" name="app">
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+
+
+
+    <div class="footer">
+        <div class="footer-row">
+          <!-- Footer Company Information -->
+          
+          <div class="footer-company">
+            <!-- Company Description -->
+            <p><span>NUVION TECHNOLOGIES</span><br>Nuvion Technologies is dedicated to providing cutting-edge IT solutions. As the driving force behind GameZotic, our goal is to leverage technology to enhance user experiences and streamline turf booking processes. We are committed to innovation and excellence in the world of information technology.</p>
+          </div>
+    
+          <!-- Footer Links -->
+          <div class="links">
+            <h3>Links</h3>
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#team">Team</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+    
+          <!-- Footer Contact Information -->
+          <div class="footer-contact">
+            <h3>Contact Us</h3>
+            <ul>
+              <li>Mail : <a href="mailto:support@nuviontech.com">support@nuviontech.com</a></li>
+              <li>Phone : <a href="tel:+91 635 313 0000">+91 879 952 3738</a></li>
+              <li>Address : <span>708, Synergy Space, Sargasan, Gandhinagar, Gujarat - 382016</span></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="copyright">
+          <p>&copy; 2024 <strong>Nuvion Technologies</strong>| All Rights Reserved.</p>
+        </div>
+        <div class="extra">
+          <div class="tnc extra-edit"><a href="tnclink">Terms and Conditions</a></div>
+          <div class="pp extra-edit"><a href="pplink">Privacy Policy</a></div>
+          <div class="joinus extra-edit"><a href="joinus">Join Us</a></div>
+        </div>
+      </div>
+</body>
+</html>

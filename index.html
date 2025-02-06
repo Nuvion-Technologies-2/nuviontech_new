@@ -1,0 +1,1686 @@
+<!DOCTYPE html>
+<ig="en">
+  <head>
+    <script>
+      document.addEventListener('keydown', function(event) {
+          if ((event.ctrlKey && event.shiftKey && event.keyCode === 73) || (event.ctrlKey && event.shiftKey && event.keyCode === 67) ||
+              (event.ctrlKey && event.KeyCode === 85) || (event.keyCode === 123)) {
+              event.preventDefault(); // Prevent the default behavior
+          }
+          if (event.ctrlKey && event.keyCode === 85) {
+              event.preventDefault(); // Prevent the default behavior
+          }
+      });
+  
+      // Prevent right-click context menu
+      window.addEventListener('contextmenu', function(event) {
+          event.preventDefault();
+      });
+     </script>
+
+<style>
+@import url(https://fonts.googleapis.com/css?family=Prompt:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+@import url(https://fonts.googleapis.com/css?family=DM+Serif+Display:regular,italic);
+@import url(https://fonts.googleapis.com/css?family=Lobster:regular);
+
+@font-face {
+  font-family: 'Nuvion';
+  src: url('img/BAUHS93.ttf') format("truetype");
+}
+
+/* ANIMATION */
+.fade-in {
+  /* Initially, move the div down by 20px */
+  animation: fadeInAnimation 1s ease-in forwards; /* Apply fade-in animation */
+}
+
+@keyframes fadeInAnimation {
+  from {
+    opacity: 0;
+    transform: translateY(
+      20px
+    ); /* Move the div down by 20px at the start of animation */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* Move the div back to its original position */
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Prompt", sans-serif;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: white;
+  border-radius: 6px;
+  border: 2px solid black;
+}
+
+::-webkit-scrollbar-track {
+  background-color: black;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+.main {
+  
+  background: url('img/bg.png') no-repeat center/cover !important;
+  background-attachment: fixed;
+}
+@keyframes slide {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* NAVBAR */
+nav {
+  display: flex !important;
+  background-color: transparent;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 10vw;
+  width: 80vw;
+  transition: all 0.3s ease;
+  position: fixed;
+  z-index: 999;
+  box-sizing: unset;
+}
+nav .header {
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 5px 10px;
+  transition: all 0.3s ease;
+  /* Removed text styling since we're using an image logo */
+}
+
+nav .header img {
+  /* Adjust the height or width as needed for your logo */
+  height: 60px;
+  width: auto;
+  display: block;
+}
+
+nav-adder .header img {
+  height:70px;
+}
+
+nav .header:hover {
+  background-position: 0 0;
+}
+
+nav .links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+  transition: 0.3s;
+  /* font-family: 'Nuvion', sans-serif; */
+  border-radius: 50px;
+  padding: 10px 20px;
+}
+
+nav a:hover {
+  background-color: #333;
+  color: white;
+}
+
+nav a:focus {
+  background-color: #333;
+  color: white;
+}
+
+.nav-adder a{
+ color:white;
+ font-size:20px;
+}
+
+.nav-adder {
+  background-color: rgb(143, 188, 255) !important;
+  transform:scale(0.8) translateY(-20px);
+  border-radius: 0 0 70px 70px;
+  /* padding: 10px 10vw; */
+}
+
+/* HERO */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  margin-top: 100px;
+}
+.hero .hero-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-top: -100px;
+}
+.hero-text p {
+  font-size: 80px;
+  width: 100%;
+  font-weight: 900;
+  color: #333;
+  font-family: "DM Serif Display", serif;
+}
+.hero .hero-content {
+  font-size: 25px;
+  margin-top: 50px;
+  color: black;
+}
+.highlight {
+  font-family: "Lobster", sans-serif;
+  color: rgb(101, 101, 255);
+  font-size: 90px !important;
+}
+.book {
+  margin-top: 80px;
+  padding: auto;
+  overflow: visible;
+}
+.book button {
+  background-color: #ffffff;
+  color: black;
+  font-size: 20px;
+  padding: 10px 20px;
+  border-radius: 50px;
+  border: solid 2px #fff;
+  cursor: pointer;
+  transition: 0.3s;
+  animation: updown 1s infinite alternate;
+}
+.book button:hover {
+  background-color: transparent;
+  border: solid 2px rgb(101, 101, 255);
+  color: rgb(101, 101, 255);
+}
+@keyframes updown {
+  0%{
+    transform: translateY(20px);
+  }
+  100%{
+    transform: translateY(-20px);
+  }
+}
+
+/* ABOUT */
+.about {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: auto;
+  width: 100%;
+  background: rgb(23, 33, 91);
+  background: -moz-linear-gradient(
+    180deg,
+    rgba(23, 33, 91, 1) 0%,
+    rgba(57, 92, 164, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    180deg,
+    rgba(23, 33, 91, 1) 0%,
+    rgba(57, 92, 164, 1) 100%
+  );
+  background: linear-gradient(
+    180deg,
+    rgba(23, 33, 91, 1) 0%,
+    rgba(57, 92, 164, 1) 100%
+  );
+}
+.about .head {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  /* background-color: rgb(255, 255, 255); */
+  padding: 20px 0;
+  margin-top: 80px;
+}
+.main-head {
+  font-size: 45px;
+  color: white;
+  margin: 2% 0 0 0;
+  font-family: "Nuvion", sans-serif;
+}
+.head p {
+  font-size: 20px;
+  color: rgb(212, 211, 211);
+  margin: 2% 0 2% 0;
+  width: 80%;
+  text-align: justify;
+}
+.about-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: 50px 0;
+  overflow: visible !important;
+}
+.acard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  overflow: visible !important;
+  color: #fff;
+}
+.acard:nth-child(2) {
+  flex-direction: row-reverse;
+}
+.acard p {
+  text-align: justify;
+  color: #d8d8d8;
+}
+.acard-wrapper {
+  width: 60%;
+  margin-right: 40px;
+}
+.acard h1 {
+  font-size: 35px;
+  color: #fff;
+  font-family: "Prompt", sans-serif;
+}
+.card-rev {
+  margin-left: 40px !important;
+  margin-right: 0 !important;
+}
+.about-img {
+  width: 40%;
+  border-radius: 75% 25% 69% 31% / 30% 63% 37% 70%;
+  -webkit-box-shadow: 33px 23px 129px -92px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 33px 23px 129px -92px rgba(0, 0, 0, 0.75);
+  box-shadow: 33px 23px 129px -92px rgba(255, 255, 255, 0.75);
+  transition: 0.3s ease;
+}
+.img-rev {
+  -webkit-box-shadow: -33px 23px 129px -92px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -33px 23px 129px -92px rgba(0, 0, 0, 0.75);
+  box-shadow: -33px 23px 129px -92px rgba(255, 255, 255, 0.75);
+}
+.about-img img {
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+}
+.about-img:hover {
+  transform: translate(-8px, -8px);
+  border-radius: 75% 25% 69% 31% / 30% 63% 37% 70%;
+  -webkit-box-shadow: 40px 30px 129px -92px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 40px 30px 129px -92px rgba(0, 0, 0, 0.75);
+  box-shadow: 40px 30px 129px -92px rgba(255, 255, 255, 0.75);
+}
+@media only screen and (max-width: 768px) {
+  .about-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+  }
+  .acard {
+    margin: 20px;
+  }
+}
+
+/* CORE SERVICES */
+.core {
+  background-color: #d9e6ff;
+}
+.core .head {
+  color: #0a0a0a;
+  font-size: 45px;
+  text-align: center;
+  margin: 50px 0;
+  font-family: "Nuvion", sans-serif;
+}
+.core-cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin: 50px 0;
+  overflow: visible !important;
+}
+.ccard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #f9fafe;
+  width: 35%;
+  height: 320px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.178);
+  transition: 0.3s;
+  opacity: 0;
+  transform: translateY(20px);
+}
+.ccard:hover {
+  background-color: #fff;
+  box-shadow: 0px 0px 25px 4px rgba(0, 0, 0, 0.307);
+}
+
+.ccard .soon {
+  margin-top: 10px;
+  color: rgb(255, 111, 111);
+  font-weight: 700;
+}
+.side-links {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  bottom: 20px;
+  right: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  height: 150px;
+  z-index: 99;
+}
+.side-links .scrolltotop {
+  transform: rotate(-90deg);
+  background-color: white;
+  border-radius: 50px;
+  padding: 4px 13px;
+}
+.side-links .scrolltotop a {
+  font-size: 30px;
+  text-decoration: none;
+  color: rgb(75, 75, 247);
+}
+
+/* TECH STACK */
+.tech {
+  background: -moz-linear-gradient(
+    180deg,
+    rgba(23, 33, 91, 1) 0%,
+    rgba(57, 92, 164, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    180deg,
+    rgba(23, 33, 91, 1) 0%,
+    rgba(57, 92, 164, 1) 100%
+  );
+  background: linear-gradient(
+    180deg,
+    rgba(23, 33, 91, 1) 0%,
+    rgba(57, 92, 164, 1) 100%
+  );
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.tech .head {
+  color: #fff;
+  font-size: 45px;
+  text-align: center;
+  margin-top: 70px;
+  font-family: "Nuvion", sans-serif;
+}
+.tech .tech-desc {
+  font-size: 18px;
+  color: #eee;
+  width: 80%;
+  text-align: center;
+  margin: 50px 0;
+}
+.tech .tech-cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin: 50px 0;
+  width: 80%;
+  overflow: visible;
+}
+.tech-cards .tcard {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 40%;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0px 0px 50px -51px rgba(255, 255, 255, 1);
+  border: 5px solid #fff;
+  transition: 0.3s ease;
+}
+.tcard .tcard-img {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom-left-radius: 40px;
+  overflow: hidden;
+}
+.tcard-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.3s ease;
+}
+.tcard-content {
+  padding: 1rem;
+  height: 140px;
+}
+.tcard-content .sub-head {
+  font-size: 25px;
+  color: #0a0a0a;
+  font-weight: 700;
+}
+.tcard-content p {
+  font-size: 15px;
+  color: #0a0a0a;
+  margin-top: 10px;
+}
+.tcard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 0px 30px 1px rgba(255, 255, 255, 0.387);
+}
+
+/* PROJECTS */
+.projects{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #d9e6ff;
+  overflow: hidden;
+}
+.projects .head{
+  color: #0a0a0a;
+  font-size: 45px;
+  text-align: center;
+  margin-top: 100px;
+  font-family: 'Nuvion', sans-serif;
+}
+.projects .p-desc{
+  font-size: 18px;
+  color: #0a0a0a;
+  width: 80%;
+  text-align: center;
+  margin: 40px 0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 100%;
+  margin: 50px 0;
+  overflow: visible;
+}
+
+
+
+
+.expandable-card {
+  position: relative;
+  /* border: 1px solid #ddd; */
+  overflow: visible;
+  width: 45%;
+  height: 510px;
+  cursor: pointer;
+}
+
+.card-image {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  z-index: 100;
+  border: 5px solid #ffffff;
+  transition: all 0.4s ease;
+}
+
+.card-image img {
+  width: 100%;
+  display: block;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 0.4s ease;
+  background: rgb(255,255,255);
+background: linear-gradient(180deg, rgba(0,0,0,0) 59%, rgba(0, 0, 0,0.7175463935574229) 92%);
+}
+
+.card-title {
+  position: absolute;
+  bottom: 10px; /* Adjust as needed */
+  left: 30px;
+  width: 100%;
+  text-align: left;
+  color: #fff;
+  font-size: 30px;
+  font-weight: bold;
+  padding: 8px 0;
+  transition: all 0.4s ease;
+}
+.card-content{
+  padding: 15px;
+  background-color: white;
+  border-radius: 10px;
+  transform: translateY(-200px);
+  z-index: -10;
+  height: 180px;
+  text-align: center;
+  display: flex;
+  align-items: flex-end;
+  transition: all 0.4s ease;
+}
+.expandable-card:hover .card-content{
+  transform: translateY(-80px);
+}
+.expandable-card:hover .card-image{
+  transform: scale(1.05);
+  box-shadow: 0px 0px 30px 1px rgba(0, 0, 0, 0.287);
+}
+.expandable-card:hover .overlay{
+  opacity: 0;
+}
+.expandable-card:hover .card-title{
+  /* color: #0a0a0a; */
+  transform: translateY(-10px);
+  opacity: 0;
+}
+.p-more {
+  padding: auto;
+  margin-top: -50px;
+  margin-bottom: 50px;
+}
+.p-more button {
+  background-color: #ffffff;
+  overflow: hidden;
+  color: black;
+  font-size: 20px;
+  padding: 10px 20px;
+  border-radius: 50px;
+  border: solid 2px #fff;
+  cursor: pointer;
+  transition: 0.3s;
+  display: none;
+}
+.p-more button:hover {
+  background-color: transparent;
+  border: solid 2px rgb(101, 101, 255);
+  color: rgb(101, 101, 255);
+}
+
+
+/* TEAM */
+.team{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: rgb(23, 33, 91);
+  background: -moz-linear-gradient(
+    180deg,
+    rgba(23, 33, 91, 1) 0%,
+    rgba(57, 92, 164, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    180deg,
+    rgba(23, 33, 91, 1) 0%,
+    rgba(57, 92, 164, 1) 100%
+  );
+  background: linear-gradient(
+    180deg,
+    rgba(23, 33, 91, 1) 0%,
+    rgba(57, 92, 164, 1) 100%
+  );
+}
+.team .head{
+  color: #fff;
+  font-size: 45px;
+  text-align: center;
+  margin-top: 100px;
+  font-family: 'Nuvion', sans-serif;
+}
+.team .head-desc{
+  font-size: 18px;
+  color: #eee;
+  width: 80%;
+  text-align: center;
+  margin: 40px 0;
+
+}
+.team-container{
+  width: 80%;
+  margin: 50px 0;
+  overflow: visible;
+}
+
+.team-card{
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  background-color: #d9e6ff;
+  border-radius: 20px;
+  height: 400px;
+  transition: all 0.5s ease;
+}
+.team-card .mem-img{
+  width: 40%;
+  height: 100%;
+  border-radius: 20px 0 0 20px;
+  overflow: hidden;
+}
+.mem-img img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.team-card .team-desc{
+  width: 60%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 40px;
+  margin-left: 20px;
+  transition: all 0.5s ease;
+}
+.team-desc .mem-name{
+  font-size: 30px;
+  color: #0a0a0a;
+  font-weight: 700;
+}
+.team-desc .mem-desc{
+  font-size: 16px;
+  color: #0a0a0a;
+}
+.team-desc .mem-links{
+  display: flex;
+  gap: 20px;
+}
+.mem-links a{
+  text-decoration: none;
+  color: #0a0a0a;
+  font-size: 20px;
+}
+.mem-links a:hover{
+  color: rgb(127, 72, 255);
+}
+
+.team-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  gap: 20px;
+}
+.team-button button{
+  background-color: #ffffff;
+  color: rgb(72, 72, 255);
+  font-size: 20px;
+  padding: 10px 20px;
+  border-radius: 50px;
+  border: solid 2px #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.team-button button:active{
+  background-color: transparent;
+  border: solid 2px white;
+  color: white;
+}
+
+
+/* CONTACT */
+.contact{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #d9e6ff;
+}
+.contact .head{
+  color: #0a0a0a;
+  font-size: 45px;
+  text-align: center;
+  margin-top: 100px;
+  font-family: 'Nuvion', sans-serif;
+}
+.contact .contact-desc{
+  font-size: 18px;
+  color: #0a0a0a;
+  width: 80%;
+  text-align: center;
+  margin: 40px 0;
+}
+.contact .contact-form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 70%;
+  
+  background: url('img/contact.png') no-repeat center/cover;
+  border-radius: 20px;
+  margin: 50px 0;
+}
+.contact-form form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding: 70px 0;
+  height: 100%;
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
+}
+.contact form input,form textarea{
+  width: 70%;
+  padding: 10px 0 10px 10px;
+  margin: 10px 0;
+  border-radius: 10px;
+  font-size: 20px;
+  border: none;
+  outline: none;
+  resize: none;
+  transition: 0.3s;
+}
+.contact input,
+.contact textarea,
+.contact button {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.inputfadein {
+  opacity: 1;
+  transform: translateY(0);
+}
+.contact form input:focus,form textarea:focus{
+  /* background-color: #d9e6ff; */
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.287);
+}
+.contact form button{
+  background-color: #e2f6ff;
+  color: #000;
+  font-size: 20px;
+  padding: 10px 20px;
+  margin-top: 30px;
+  border-radius: 50px;
+  border: solid 2px #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.contact form button:active{
+  background-color: transparent;
+  border: solid 2px white;
+  color:white;
+}
+
+/* FOOTER */
+footer{
+  background: rgb(23, 33, 91);
+  background: -moz-linear-gradient(
+    180deg,
+    rgba(23, 33, 91, 1) 0%,
+    rgba(57, 92, 164, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    180deg,
+    rgba(23, 33, 91, 1) 0%,
+    rgba(57, 92, 164, 1) 100%
+  );
+  background: linear-gradient(
+    180deg,
+    rgba(23, 33, 91, 1) 0%,
+    rgba(57, 92, 164, 1) 100%
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+footer .footer-row{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: row;
+  width: 100%;
+  margin: 30px 0;
+}
+.footer-row .footer-company{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 45%;
+}
+.footer-links,.footer-contact{
+  color: white;
+}
+.footer-company p{
+  width: 80%;
+  color: white;
+}
+.footer-company span{
+  font-weight: 700;
+  font-size: large;
+  margin-bottom: 20px;
+}
+.footer-links{
+  margin-left: 70px;
+  width: 25%;
+}
+.footer-links ul{
+  list-style: none;
+  li{
+    margin: 4px 0;
+    a{
+      text-decoration: none;
+      color: #a9c7ff;
+    }
+  }
+}
+.footer-contact{
+  width: 30%;
+  ul{
+    list-style: none;
+    li{
+      margin: 4px 0;
+      a{
+        text-decoration: none;
+        color: #a9c7ff;
+      }
+    }
+  }
+}
+
+.copyright{
+  color: white;
+  font-size: 16px;
+  margin: 20px 0;
+}
+.extra{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  background-color: transparent;
+  width: 100%;
+  gap: 20px;
+  margin: 20px 0;
+}
+.extra-edit {
+  a{
+    text-decoration: none;
+    color: white;
+    font-size: 12px;
+  }
+}
+
+/* ----------------------- */
+/* LOADER */
+.patterns {
+  display: none;
+  position: fixed;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(171, 205, 255);
+  z-index: 999;
+  transition: opacity 0.8s ease-in-out; 
+  overflow: hidden;
+}
+
+.patterns svg {
+  stroke: black;
+  margin-top: -50px;
+  font-size: 150px;
+  font-weight: 100;
+  stroke-width: 3;
+  animation: textAnimate 1.8s infinite alternate;
+  /* fill: rgb(171, 205, 255); */
+  /* fill: black; */
+  fill: transparent;
+}
+.patterns svg text {
+  font-family: 'Nuvion', sans-serif;
+}
+
+@keyframes textAnimate {
+  0% {
+    stroke-dasharray: 0 50%;
+    stroke-dashoffset: 20%;
+  }
+
+  100% {
+    stroke-dasharray: 50% 0;
+    stroke-dashoffstet: -20%;
+  }
+}      
+</style>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+
+      href="./img/logo_nt.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href= 'styles.css' />
+    <link rel="stylesheet" href= "resp.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Nuvion Technologies</title>
+  </head>
+
+    <div class="side-links">
+      <div class="wa">
+        <a
+          href="https://wa.me/%2B918799523738/?text=I%27m%20interested%20in%20your%20service.%20Let%27s%20work%20together.
+        "
+        >
+          <script
+            src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+            type="module"
+          ></script>
+
+          <dotlottie-player
+            src="https://lottie.host/06532e87-7131-45a9-9568-8a56e8717dd8/5bPtme11OB.json"
+            background="transparent"
+            speed="1"
+            style="width: 80px; height: 80px"
+            loop
+            autoplay
+          ></dotlottie-player>
+        </a>
+      </div>
+      <div class="scrolltotop">
+        <a href="#home" id="home-link">&#10140;</a>
+      </div>
+    </div>
+
+    <div class="main" id="home">
+      <nav id="navbar">
+        <div class="header" onclick="redirectToHome()">
+          <img src="./img/banner_logo_transparent.png" alt="Nuvion Tech Logo" />
+        </div>
+        <div class="links" id="nav-links">
+          <a href="#">Home</a>
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#team">Team</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+
+      <div class="hero">
+        <div class="hero-wrapper">
+          <div class="hero-text">
+            <p id="part1">Empowering <span class="highlight">Growth</span></p>
+            <p id="part2">
+              Through <span class="highlight">Digital Excellence!</span>
+            </p>
+          </div>
+          <div class="hero-content">
+            Revolutionize your business with Nuvion. Expert IT solutions, web
+            development<br />and applications tailored for success.
+          </div>
+        </div>
+        <div class="book">
+          <button onclick="redirectToContact()">Let's Get in Touch</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="about" id="about">
+      <div class="head">
+        <h1 class="main-head">About Us</h1>
+        <p>
+          Welcome to Nuvion Technologies, where we redefine possibilities and
+          pioneer the digital future. Founded on a vision that transcends
+          conventional boundaries, we are driven by the mission to revolutionize
+          the digital realm through innovative IT solutions. Join us on this
+          transformative journey as we harness the power of technology to
+          empower and inspire.
+        </p>
+      </div>
+      <div class="about-content">
+        <div class="acard">
+          <div class="acard-wrapper">
+            <h1 class="sub-head">Team Excellence</h1>
+            <p>
+              Dedicated professionals drive Nuvion Technologies' success,
+              delivering cutting-edge solutions with expertise and passion.
+              Collaboration ensures your vision is elevated to new heights, with
+              your success as our top priority.
+            </p>
+          </div>
+          <div class="about-img">
+            <img src="img/team.jpg" alt="" />
+          </div>
+        </div>
+        <div class="acard">
+          <div class="acard-wrapper card-rev">
+            <h1 class="sub-head">Client-Centric Philosophy</h1>
+            <p>
+              Nuvion Technologies thrives on building lasting partnerships,
+              guided by trust, transparency, and mutual success. Your goals
+              become our mission, delivering solutions that exceed expectations
+              through transparent communication.
+            </p>
+          </div>
+          <div class="about-img img-rev">
+            
+            <img src="img/client.jpg"alt="" />
+          </div>
+        </div>
+        <div class="acard">
+          <div class="acard-wrapper">
+            <h1 class="sub-head">Innovation and Excellence</h1>
+            <p>
+              At Nuvion Technologies, innovation is our identity, driving us to
+              constantly push boundaries and deliver transformative solutions.
+              Our pursuit of excellence ensures we stay ahead in the
+              ever-changing digital landscape, providing future-proof solutions
+              for our clients.
+            </p>
+          </div>
+          <div class="about-img">
+            
+            <img src="img/inno.jpg" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="core">
+      <div class="head">Core Services</div>
+      <div class="core-cards">
+        <div class="ccard" id="ccard">
+          <div class="ccard-wrapper">
+            <div class="core-img">
+              <lord-icon
+                src="https://cdn.lordicon.com/pbbsmkso.json"
+                trigger="loop"
+                delay="2500"
+                state="hover-rotate-up-to-down"
+                colors="primary:#121331,secondary:#000000"
+                style="width: 100px; height: 100px"
+              >
+              </lord-icon>
+            </div>
+            <h1 class="sub-head">Web Development</h1>
+            <p>
+              Our web development services are designed to elevate your online
+              presence, delivering responsive and user-friendly websites that
+              captivate your audience.
+            </p>
+          </div>
+        </div>
+        <div class="ccard">
+          <div class="ccard-wrapper">
+            <creattie-embed
+              src="https://d1jj76g3lut4fe.cloudfront.net/saved_colors/87728/ZlUMkEeMrTedKYyG.json"
+              delay="2500"
+              frame_rate="24"
+              stroke_width="22.5"
+              trigger="loop"
+              style="width: 100px; background-color: transparent"
+            >
+            </creattie-embed>
+            <h1 class="sub-head">Mobile Applications</h1>
+            <p>
+              Harness the power of mobile applications to engage your audience
+              and drive growth. Our mobile app development services are tailored
+              to your unique needs, delivering innovative solutions that
+              captivate your audience.
+            </p>
+          </div>
+        </div>
+        <div class="ccard">
+          <div class="ccard-wrapper">
+            <lord-icon
+              src="https://cdn.lordicon.com/xirobkro.json"
+              trigger="loop"
+              delay="2500"
+              colors="primary:#121331,secondary:#000000"
+              style="width: 100px; height: 100px"
+            >
+            </lord-icon>
+            <h1 class="sub-head">Desktop Application</h1>
+            <p>
+              Our desktop application development services are designed to
+              streamline your business operations, delivering efficient and
+              user-friendly solutions that drive growth and success.
+            </p>
+          </div>
+        </div>
+        <div class="ccard">
+          <div class="ccard-wrapper">
+            <lord-icon
+              src="https://cdn.lordicon.com/vqhlecvy.json"
+              trigger="loop"
+              delay="2500"
+              state="in-reveal"
+              colors="primary:#121331,secondary:#000000"
+              style="width: 100px; height: 100px"
+            >
+            </lord-icon>
+            <h1 class="sub-head">Digital Marketing</h1>
+            <p>
+              Our desktop application development services are designed to
+              streamline your business operations, delivering efficient and
+              user-friendly solutions that drive growth and success.
+            </p>
+          </div>
+        </div>
+        <div class="ccard">
+          <div class="ccard-wrapper">
+            <lord-icon
+              src="https://cdn.lordicon.com/stxfyhky.json"
+              trigger="loop"
+              delay="2500"
+              colors="primary:#121331,secondary:#000000"
+              style="width: 100px; height: 100px"
+            >
+            </lord-icon>
+            <h1 class="sub-head">Security Provider</h1>
+            <p>
+              Protect your digital assets with our security services, ensuring
+              your data is secure and your business is protected from cyber
+              threats. Our security solutions are designed to safeguard your
+              business and deliver peace of mind.
+            </p>
+          </div>
+        </div>
+        <div class="ccard">
+          <div class="ccard-wrapper">
+            <lord-icon
+              src="https://cdn.lordicon.com/kqvibaec.json"
+              trigger="loop"
+              delay="2500"
+              colors="primary:#121331,secondary:#000000"
+              style="width: 100px; height: 100px"
+            >
+            </lord-icon>
+            <h1 class="sub-head">Cloud Infrastucture</h1>
+            <p>
+              Leverage the power of the cloud with our cloud infrastructure
+              services, delivering scalable and cost-effective solutions that
+              drive growth and innovation. Our cloud services are designed to
+              optimize your business operations and deliver transformative
+              results.
+            </p>
+          </div>
+        </div>
+        <div class="ccard">
+          <div class="ccard-wrapper">
+            <lord-icon
+              src="https://cdn.lordicon.com/zrtfxghu.json"
+              trigger="loop"
+              delay="2500"
+              state="in-assessment"
+              colors="primary:#121331,secondary:#000000"
+              style="width: 100px; height: 100px"
+            >
+            </lord-icon>
+            <h1 class="sub-head">VAPT Assessment</h1>
+            <p>
+              Our VAPT Assessment rigorously identifies vulnerabilities by simulating real-world attacks.We provide actionable insights to strengthen your security posture.Trust our experts to ensure robust protection and business continuity.
+            </p>
+          </div>
+        </div>
+        <div class="ccard">
+          <div class="ccard-wrapper">
+            <lord-icon
+              src="https://cdn.lordicon.com/rpgflpkp.json"
+              trigger="loop"
+              delay="2500"
+              state="hover-bug-2"
+              colors="primary:#121331,secondary:#000000"
+              style="width: 100px; height: 100px"
+            >
+            </lord-icon>
+            <h1 class="sub-head">Malware Analysis</h1>
+            <p>
+              Our Malware Analysis service dissects suspicious code to uncover hidden threats.We deliver actionable insights to neutralize risks and keep your digital assets secure.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tech">
+      <div class="head">Our Tech Arsenal</div>
+      <div class="tech-desc">
+        Unleash innovation with our tech arsenal. Equipped with cutting-edge
+        frameworks and solutions, we deliver unparalleled results. Stay ahead
+        and experience the difference. Let us empower your journey with
+        success-driven technology. Stay tuned for more groundbreaking additions.
+      </div>
+      <div class="tech-cards">
+        <div class="tcard">
+          <div class="tcard-img">
+            
+            <img src="img/django.png" alt="tech card img" />
+          </div>
+          <div class="tcard-content django">
+            <div class="sub-head">Django</div>
+            <p>
+              Our Django development services provide scalable and secure web
+              application solutions tailored to your business needs.
+            </p>
+          </div>
+        </div>
+        <div class="tcard">
+          <div class="tcard-img">
+            
+            <img src="img/react.png" alt="tech card img" />
+          </div>
+          <div class="tcard-content react">
+            <div class="sub-head">React</div>
+            <p>
+              Utilizing React's component-based architecture, our development
+              services deliver dynamic and engaging web interfaces for enhanced
+              user experiences.
+            </p>
+          </div>
+        </div>
+        <div class="tcard">
+          <div class="tcard-img">
+            <img src="img/react_native_3.png" alt="tech card img"/>
+          </div>
+          <div class="tcard-content react">
+            <div class="sub-head">React Native</div>
+            <p>
+              Harness React Native to build high-performance mobile apps across iOS and Android.Our expert team delivers scalable, feature-rich cross-platform solutions.
+            </p>
+          </div>
+        </div>
+        <div class="tcard">
+          <div class="tcard-img">
+            <img src="img/node_js.png" alt="tech card img"/>
+          </div>
+          <div class="tcard-content react">
+            <div class="sub-head">Node JS</div>
+            <p>
+              Build scalable apps with Node.js.Our experts leverage its non-blocking architecture for efficient, high-performance solutions.
+            </p>
+          </div>
+        </div>
+        <div class="tcard">
+          <div class="tcard-img">
+            
+            <img src="img/flutter.png" alt="tech card img"  />
+          </div>
+          <div class="tcard-content flutter">
+            <div class="sub-head">Flutter</div>
+            <p>
+              With our Flutter app development, we create visually appealing and
+              performant cross-platform mobile applications, accelerating
+              time-to-market.
+            </p>
+          </div>
+        </div>
+        <div class="tcard">
+          <div class="tcard-img">
+            
+            <img src="img/aws.png" alt="tech card img" />
+          </div>
+          <div class="tcard-content aws">
+            <div class="sub-head">AWS</div>
+            <p>
+              Through our AWS cloud services, we offer scalable and secure
+              infrastructure solutions, ensuring seamless deployment and cost
+              optimization for your applications.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="projects" id="projects">
+      <div class="head">Explore Our Work</div>
+      <div class="p-desc">
+        Explore our early wins! With only a handful of projects completed, we're
+        already leaving our mark. Dive into our portfolio and witness firsthand
+        the impact of our passion and dedication.
+      </div>
+      <div class="container">
+        <div class="expandable-card">
+          <div class="card-image">
+            <img src="img/gsa2.png" alt="Image" style="width:680px;height:400px" />
+            <div class="overlay"></div>
+            <div class="card-title">GSA</div>
+          </div>
+          <div class="card-content">
+            We designed and developed the website for Gandhinagar Sports Academy, a premier institution dedicated to fostering athletic talent. The platform features a responsive, user-friendly design that showcases training programs, event schedules, and the academy’s achievements. This project highlights my expertise in creating dynamic digital experiences tailored for the sports and education sectors.
+          </div>
+        </div>
+        <div class="expandable-card">
+          <div class="card-image">
+            <img src="img/cmt.png" alt="Image" />
+            <div class="overlay"></div>
+            <div class="card-title">CMT</div>
+          </div>
+          <div class="card-content">
+            The Conference Management System delivers top-notch functionality to
+            clients, providing an easy and convenient platform for submitting
+            and reviewing research papers. Our system ensures seamless
+            recognition of submissions by experts and facilitates efficient
+            approval processes.
+          </div>
+        </div>
+        <div class="expandable-card">
+          <div class="card-image">
+            
+            <img src="img/gamezotic.png" alt="Image" />
+            <div class="overlay"></div>
+            <div class="card-title">Game Zotic</div>
+          </div>
+          <div class="card-content">
+            Nuvion Technologies' debut project introduced a streamlined turf
+            booking system, catering to the needs of sports enthusiasts. With
+            user-friendly interfaces, booking turf spaces became effortless,
+            revolutionizing the sports reservation experience.
+          </div>
+        </div>
+        <div class="expandable-card">
+          <div class="card-image">
+            
+            <img src="img/sahitya.png" alt="Image" style="height:400px" />
+            <div class="overlay"></div>
+            <div class="card-title">Sahitya (Society Management)</div>
+          </div>
+          <div class="card-content">
+            Introducing ZS Collection, your go-to destination for Kurta shopping
+            online. Enjoy seamless browsing and a wide selection of traditional
+            and contemporary styles, all at your fingertips.
+          </div>
+        </div>
+      </div>
+      <div class="p-more">
+        <button onclick="redirectToProjects()">View More Projects</button>
+      </div>
+    </div>
+
+    <div class="team" id="team">
+      <div class="head">Meet the Team</div>
+      <div class="head-desc">Discover the faces behind our success. Our team embodies diversity, expertise, and a shared passion for excellence. Together, we collaborate, innovate, and strive towards common goals, ensuring every project is executed with precision and care. Get to know the talented individuals who bring our vision to life and make our endeavors possible.</div>
+      <div class="team-container">
+        <div class="team-card">
+          
+          <div class="mem-img"><img src="img/shivam.jpeg" alt="" /></div>
+          <div class="team-desc">
+          <div class="mem-name">Shivam Soni</div>
+          <div class="mem-desc">
+            I possess deep knowledge in Python and have a wealth of experience
+            in developing projects using Python, with core expertise in Django.
+            My skill set extends to leadership, allowing me to effectively lead
+            teams and projects to success.
+          </div>
+          <div class="mem-links">
+            <a
+              href="https://www.instagram.com/shivam_soni.2712"
+              target="_blank"
+              title="Instagram"
+            >
+              <i class="bi-instagram"></i>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/shivam-soni-859191221/"
+              target="_blank"
+              title="LinkedIn"
+            >
+              <i class="bi-linkedin"></i>
+            </a>
+          </div>
+          </div>
+        </div>
+        <div class="team-card">
+          
+          <div class="mem-img"><img src="img/om.jpeg" alt="" /></div>
+          <div class="team-desc">
+          <div class="mem-name">Om Sangani</div>
+          <div class="mem-desc">
+            I have a strong understanding of front-end development, having
+            completed numerous projects at the university level. Additionally, I
+            excel in public speaking, utilizing my skills to effectively
+            communicate ideas and engage with audiences.
+          </div>
+          <div class="mem-links">
+            <a
+              href="https://www.instagram.com/omsangani29"
+              target="_blank"
+              title="Instagram"
+            >
+              <i class="bi-instagram"></i>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/omsangani/"
+              target="_blank"
+              title="LinkedIn"
+            >
+              <i class="bi-linkedin"></i>
+            </a>
+          </div>
+          </div>
+        </div>
+        <div class="team-card">
+          
+          <div class="mem-img"><img src="img/harsh.jpeg" alt="" /></div>
+          <div class="team-desc">
+          <div class="mem-name">Harsh Mavani</div>
+          <div class="mem-desc">
+            I am an expert in backend development, with a strong proficiency in
+            cybersecurity and server administration. My experience includes
+            successfully solving numerous security-related quizzes and Capture
+            The Flag (CTF) challenges. Additionally, I have crafted a project
+            focused on email security, showcasing my practical knowledge in this
+            domain.
+          </div>
+          <div class="mem-links">
+            <a
+              href="https://www.instagram.com/harshmavani24"
+              target="_blank"
+              title="Instagram"
+            >
+              <i class="bi-instagram"></i>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/harshmavani24/"
+              target="_blank"
+              title="LinkedIn"
+            >
+              <i class="bi-linkedin"></i>
+            </a>
+          </div>
+          </div>
+        </div>
+        <div class="team-card">
+          
+          <div class="mem-img"><img src="img/samarth.jpeg" alt="" /></div>
+          <div class="team-desc">
+          <div class="mem-name">Samarth Bhimani</div>
+          <div class="mem-desc">
+            Skilled in effective communication strategies and equipped with a
+            comprehensive understanding of marketing principles, I bring
+            valuable insights to the team. Furthermore, my proficiency in
+            front-end development allows me to contribute to the creation of
+            engaging and user-friendly interfaces.
+          </div>
+          <div class="mem-links">
+            <a
+              href="https://www.instagram.com/s3marth"
+              target="_blank"
+              title="Instagram"
+            >
+              <i class="bi-instagram"></i>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/samarthbhimani/"
+              target="_blank"
+              title="LinkedIn"
+            >
+              <i class="bi-linkedin"></i>
+            </a>
+          </div>
+          </div>
+        </div>
+        <div class="team-card">
+          
+          <div class="mem-img"><img src="img/jeel.jpeg" alt="" /></div>
+          <div class="team-desc">
+          <div class="mem-name">Jeel Patel</div>
+          <div class="mem-desc">
+            Skilled in graphic design and social media management, I offer
+            creative solutions and effective brand promotion. With strong
+            communication skills, I confidently engage with clients to
+            understand and fulfill their needs.
+          </div>
+          <div class="mem-links">
+            <a
+              href="https://www.instagram.com/shiv0103__"
+              target="_blank"
+              title="Instagram"
+            >
+              <i class="bi-instagram"></i>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/jeel-patel-8b9101225/"
+              target="_blank"
+              title="LinkedIn"
+            >
+              <i class="bi-linkedin"></i>
+            </a>
+          </div>
+          </div>
+        </div>
+
+        <div class="team-button">
+        <button class="team-button team-right" onclick="plusDivs(-1)">
+          &#10094;
+        </button>
+        <button class="team-button team-left" onclick="plusDivs(1)">
+          &#10095;
+        </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact" id="contact">
+      <div class="head">Contact Us</div>
+        <div class="contact-desc">
+          Have a project in mind? Let's collaborate! Reach out to us and let's
+          discuss how we can bring your vision to life. We're here to answer any
+          questions you may have and provide you with the information you need.
+          <br />
+          <br />
+          <br />
+          <br />
+        </div>
+
+      </div>
+
+      <footer>
+        <div class="footer-row">
+          <!-- Footer Company Information -->
+          
+          <div class="footer-company">
+            <!-- Company Description -->
+            <p><span>NUVION TECHNOLOGIES</span><br>Nuvion Technologies is dedicated to providing cutting-edge IT solutions. As the driving force behind GameZotic, our goal is to leverage technology to enhance user experiences and streamline turf booking processes. We are committed to innovation and excellence in the world of information technology.</p>
+          </div>
+    
+          <!-- Footer Links -->
+          <div class="footer-links">
+            <h3>Links</h3>
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#team">Team</a></li>
+              <li><a href="#projects">Projects</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+    
+          <!-- Footer Contact Information -->
+          <div class="footer-contact">
+            <h3>Contact Us</h3>
+            <ul>
+              <li>Mail : <a href="mailto:info@nuviontech.com">info@nuviontech.com</a></li>
+              <li>Phone : <a href="tel:+91 8799523738">+91 879 952 3738</a></li>
+              <li>Address : <span>708, Synergy Space, Sargasan, Gandhinagar, Gujarat - 382421</span></li>
+            </ul>
+          </div>
+        </div>
+    
+        <!-- Copyright Information -->
+        <div class="copyright">
+          <p>&copy; 2024 <strong>Nuvion Technologies </strong>| All Rights Reserved.</p>
+        </div>
+        <div class="extra">
+          <div class="tnc extra-edit"><a href="/termsandcondition">Terms and Conditions</a></div>
+          <div class="pp extra-edit"><a href="/privacypolicy">Privacy Policy</a></div>
+          <div class="joinus extra-edit"><a href="#contact">Join Us</a></div>
+        </div>
+      </footer>
+
+
+      <div class="patterns" id="loader">
+        <svg width="100%" height="100%">
+       <text x="50%" y="60%"  text-anchor="middle"  >
+        NUVION
+       </text>
+       </svg>
+      </div>
+  </body>
+  
+  <script src="index.js"></script>
+  <script src="https://cdn.lordicon.com/lordicon.js"></script>
+  <script
+    src="https://creattie.com/js/embed.js?id=3f6954fde297cd31b441"
+    defer ></script>
+</html>

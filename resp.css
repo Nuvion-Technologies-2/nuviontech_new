@@ -1,0 +1,148 @@
+@media screen  and (max-width: 768px) {
+nav{
+    justify-content: center;
+}
+    nav .links{
+        display: none;
+    }
+    nav .header{
+        text-align: center;
+    }
+    .nav-adder{
+        transform: none;
+    }
+    .hero-wrapper{
+        margin-top:0 !important;
+        height: auto;
+    }
+    .hero-text{
+        height: auto;
+        padding-left: 20px;
+        overflow: hidden;
+    }
+    .hero-text p{
+        font-size: 50px;
+    }
+    .hero-text .highlight{
+        font-size: 50px !important;
+    }
+    .hero-content{
+        padding: 0px 20px;
+        overflow: hidden;
+    }
+    .book{
+        margin-bottom: 60px;
+    }
+    .about .head p{
+        color: white;
+    }
+    .about p{
+        font-size: 18px;
+        color: #333;
+        text-align: center;
+    }
+    .about-content .about-img{
+        display: none;
+    }
+    .about .sub-head{
+        font-size: 30px;
+        text-align: center;
+        color: black;
+    }
+    .acard-wrapper{
+        margin: 0 !important;
+        width: 80%;
+        background-color: #d9e6ff;
+        padding: 20px;
+        color: black !important;
+    }
+    .ccard{
+        width: 80%;
+    }
+    .tcard{
+        width: 90% !important;
+    }
+    .tech .tech-cards{
+        width: 100%;
+    }
+    .projects .head{
+        margin-top: 30px;
+        margin-bottom: -30px;
+    }
+    .expandable-card{
+        width: 90%;
+    }
+    .card-content{
+        transform: none;
+        border-radius: 20px;
+        z-index: -10;
+        height: 180px;
+        text-align: center;
+        display: flex;
+        align-items: flex-end;
+        transition: all 0.4s ease;
+        padding-top: 20px;
+      }
+      .expandable-card:hover .card-content{
+        transform: none;
+      }
+      .expandable-card:hover .card-image{
+        transform: scale(1.05);
+        box-shadow: 0px 0px 30px 1px rgba(0, 0, 0, 0.287);
+      }
+      .expandable-card:hover .overlay{
+        opacity: 0;
+      }
+      .expandable-card:hover .card-title{
+        /* color: #0a0a0a; */
+        transform: translateY(-10px);
+        opacity: 0;
+      }
+      .team .head{
+        margin-top: 30px;
+      }
+      .team .team-card{
+        /* flex-direction: column; */
+        /* height: auto; */
+        width: 100%;
+      }
+      .team-desc{
+        padding: 0 !important;
+      }
+      .team-container{
+        width: 95%;
+      }
+      .team-card .mem-img{
+        width: 100%;
+      }
+      .team-desc .mem-desc{
+        display: none;
+      }
+      .contact .head{
+        margin-top: 30px;
+      }
+        .contact .contact-form{
+            width: 100%;
+            border-radius: 0;
+        }
+        footer .footer-row{
+            flex-direction: column;
+        }
+        .footer-company,.footer-links,.footer-contact{
+            width: 100% !important;
+            margin-left: 30px !important;
+            margin-top: 30px;
+        }
+        .footer-company p{  
+            margin-bottom: 10px;
+        }
+        .footer-company{
+            align-items: unset !important;
+        }
+        .copyright{
+            font-size: 12px;
+        }
+        .patterns svg{
+            font-size: 100px;
+        }
+}
