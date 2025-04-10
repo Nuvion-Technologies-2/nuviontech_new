@@ -1,8 +1,8 @@
 function redirectToHome() {
-  window.location.href = "http://127.0.0.1:5500/index.html";
+  window.location.href = "https://nuviontech.com/index.html";
 }
 function redirectToProjects() {
-  window.location.href = "http://127.0.0.1:5500/projects.html";
+  window.location.href = "https://nuviontech.com/projects.html";
 }
 function redirectToDigi() {
   window.open("http://digiaarogya.com", "_blank");
