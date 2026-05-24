@@ -1,109 +1,148 @@
-/* ─────────── TABLET & BELOW ─────────── */
-@media screen and (max-width: 1024px) {
-  .contact-wrap { grid-template-columns: 1fr; gap: 40px; }
-  .tech-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
-  .projects-grid { grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); }
-  .about-grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
+@media screen  and (max-width: 768px) {
+nav{
+    justify-content: center;
 }
-
-@media screen and (max-width: 768px) {
-  /* Counter */
-  .counter-wrap { gap: 20px; }
-  .counter-item { padding: 12px 16px; }
-  .counter-item .counter-num { font-size: 32px; }
-
-  /* Nav */
-  nav { padding: 12px 4vw; }
-  nav .logo img { height: 38px; }
-  .nav-links a { display: none; }
-  .nav-links .theme-toggle { display: flex; }
-  .hamburger { display: flex; }
-
-  /* Hero */
-  .hero { padding: 100px 4vw 40px; min-height: 85vh; }
-  .hero h1 { font-size: clamp(32px, 10vw, 52px); }
-  .hero p { font-size: 16px; }
-  .hero-buttons { flex-direction: column; width: 100%; }
-  .hero-buttons .btn-primary, .hero-buttons .btn-outline { width: 100%; justify-content: center; }
-
-  /* Sections */
-  section { padding: 60px 4vw !important; }
-  .section-header { margin-bottom: 40px; }
-  .section-header h2 { font-size: 28px; }
-  .section-header p { font-size: 15px; width: 100%; }
-
-  /* About */
-  .about-grid { grid-template-columns: 1fr; gap: 20px; }
-  .about-card { padding: 28px 20px; }
-
-  /* Services */
-  .services-grid { grid-template-columns: 1fr; gap: 16px; }
-
-  /* Tech */
-  .tech-grid { grid-template-columns: 1fr; gap: 20px; }
-
-  /* Projects */
-  .projects-grid { grid-template-columns: 1fr; gap: 20px; }
-
-  /* Team */
-  .team-card { flex-direction: column; }
-  .team-card .mem-img { width: 100%; min-height: 280px; }
-  .team-card .mem-info { padding: 28px; }
-  .team-card .mem-info .mem-name { font-size: 24px; }
-  .team-card .mem-info .mem-desc { display: none; }
-
-  /* Contact */
-  .contact-form-wrap { padding: 24px; }
-  .contact-info h3 { font-size: 22px; }
-
-  /* Footer */
-  .footer-inner { grid-template-columns: 1fr; gap: 30px; text-align: center; }
-
-  /* Wave divider */
-  .section-wave { height: 40px; }
-
-  /* Side actions */
-  .side-actions { right: 12px; bottom: 16px; }
-  .side-actions .wa-btn { width: 48px; height: 48px; font-size: 22px; }
-  .side-actions .scroll-top { width: 38px; height: 38px; font-size: 16px; }
-
-  /* Loader */
-  #loader svg text { font-size: 60px; }
-}
-
-/* ─────────── SMALL PHONES ─────────── */
-@media screen and (max-width: 480px) {
-  .hero h1 { font-size: 28px; }
-  .hero-badge { font-size: 12px; padding: 6px 14px; }
-  .btn-primary, .btn-outline { padding: 14px 24px; font-size: 14px; }
-
-  .section-header .label { font-size: 11px; padding: 4px 14px; }
-  .section-header h2 { font-size: 24px; }
-
-  .service-card { padding: 24px 18px; }
-  .service-card h3 { font-size: 17px; }
-
-  .tech-card .card-body { padding: 16px; }
-  .tech-card .card-body h4 { font-size: 17px; }
-  .tech-card .card-img { height: 140px; }
-
-  .team-card .mem-img { min-height: 180px; }
-  .team-card .mem-info { padding: 16px; gap: 10px; }
-  .team-card .mem-info .mem-name { font-size: 18px; }
-  .team-card .mem-info .mem-role { font-size: 12px; }
-
-  .contact-form-wrap .checkbox-group { flex-direction: column; gap: 8px; }
-
-  .footer-inner { gap: 24px; }
-
-  .float-shape-3, .float-shape-5 { display: none; }
-}
-
-/* ─────────── LARGE SCREENS ─────────── */
-@media screen and (min-width: 1400px) {
-  .hero-inner, .about-grid, .services-grid, .tech-grid, .projects-grid, .contact-wrap, .footer-inner {
-    max-width: 1300px;
-  }
-  nav .nav-inner { max-width: 1300px; }
-  .hero h1 { font-size: 90px; }
+    nav .links{
+        display: none;
+    }
+    nav .header{
+        text-align: center;
+    }
+    .nav-adder{
+        transform: none;
+    }
+    .hero-wrapper{
+        margin-top:0 !important;
+        height: auto;
+    }
+    .hero-text{
+        height: auto;
+        padding-left: 20px;
+        overflow: hidden;
+    }
+    .hero-text p{
+        font-size: 50px;
+    }
+    .hero-text .highlight{
+        font-size: 50px !important;
+    }
+    .hero-content{
+        padding: 0px 20px;
+        overflow: hidden;
+    }
+    .book{
+        margin-bottom: 60px;
+    }
+    .about .head p{
+        color: white;
+    }
+    .about p{
+        font-size: 18px;
+        color: #333;
+        text-align: center;
+    }
+    .about-content .about-img{
+        display: none;
+    }
+    .about .sub-head{
+        font-size: 30px;
+        text-align: center;
+        color: black;
+    }
+    .acard-wrapper{
+        margin: 0 !important;
+        width: 80%;
+        background-color: #d9e6ff;
+        padding: 20px;
+        color: black !important;
+    }
+    .ccard{
+        width: 80%;
+    }
+    .tcard{
+        width: 90% !important;
+    }
+    .tech .tech-cards{
+        width: 100%;
+    }
+    .projects .head{
+        margin-top: 30px;
+        margin-bottom: -30px;
+    }
+    .expandable-card{
+        width: 90%;
+    }
+    .card-content{
+        transform: none;
+        border-radius: 20px;
+        z-index: -10;
+        height: 180px;
+        text-align: center;
+        display: flex;
+        align-items: flex-end;
+        transition: all 0.4s ease;
+        padding-top: 20px;
+      }
+      .expandable-card:hover .card-content{
+        transform: none;
+      }
+      .expandable-card:hover .card-image{
+        transform: scale(1.05);
+        box-shadow: 0px 0px 30px 1px rgba(0, 0, 0, 0.287);
+      }
+      .expandable-card:hover .overlay{
+        opacity: 0;
+      }
+      .expandable-card:hover .card-title{
+        /* color: #0a0a0a; */
+        transform: translateY(-10px);
+        opacity: 0;
+      }
+      .team .head{
+        margin-top: 30px;
+      }
+      .team .team-card{
+        /* flex-direction: column; */
+        /* height: auto; */
+        width: 100%;
+      }
+      .team-desc{
+        padding: 0 !important;
+      }
+      .team-container{
+        width: 95%;
+      }
+      .team-card .mem-img{
+        width: 100%;
+      }
+      .team-desc .mem-desc{
+        display: none;
+      }
+      .contact .head{
+        margin-top: 30px;
+      }
+        .contact .contact-form{
+            width: 100%;
+            border-radius: 0;
+        }
+        footer .footer-row{
+            flex-direction: column;
+        }
+        .footer-company,.footer-links,.footer-contact{
+            width: 100% !important;
+            margin-left: 30px !important;
+            margin-top: 30px;
+        }
+        .footer-company p{  
+            margin-bottom: 10px;
+        }
+        .footer-company{
+            align-items: unset !important;
+        }
+        .copyright{
+            font-size: 12px;
+        }
+        .patterns svg{
+            font-size: 100px;
+        }
 }
